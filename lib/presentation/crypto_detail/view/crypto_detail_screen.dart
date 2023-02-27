@@ -53,7 +53,7 @@ class _CryptoDetailScreenState extends State<CryptoDetailScreen> {
                 const SizedBox(height: 4),
                 Text(
                   'USD .${quote?.price.toStringAsFixed(3)}',
-                  style: CryptoTextStyle.body3,
+                  style: CryptoTextStyle.body2,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
