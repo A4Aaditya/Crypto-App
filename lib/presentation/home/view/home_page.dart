@@ -42,13 +42,17 @@ class _HomePageState extends State<HomePage> {
         },
         builder: (context, state) {
           if (state is CrytpoSuccessState) {
-            return ListView.builder(
-              padding: const EdgeInsets.all(8.0),
-              itemCount: state.cryptos.length,
-              itemBuilder: (context, index) {
-                final crypto = state.cryptos[index];
-                return CryptoCard(cryptos: crypto);
-              },
+            return IndexedStack(
+              children: [
+                ListView.builder(
+                  padding: const EdgeInsets.all(8.0),
+                  itemCount: state.cryptos.length,
+                  itemBuilder: (context, index) {
+                    final crypto = state.cryptos[index];
+                    return CryptoCard(cryptos: crypto);
+                  },
+                ),
+              ],
             );
           }
           return const SizedBox();

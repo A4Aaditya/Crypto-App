@@ -52,7 +52,7 @@ class _CryptoDetailScreenState extends State<CryptoDetailScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'USD .${quote?.price.toStringAsFixed(3)}',
+                  'USD. ${quote?.price.toStringAsFixed(3)}',
                   style: CryptoTextStyle.body2,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -67,14 +67,17 @@ class _CryptoDetailScreenState extends State<CryptoDetailScreen> {
               right: 8,
             ),
             child: ListTile(
+              onTap: () {},
               leading: const Icon(Icons.factory),
               title: const Text(
                 'Market Cap',
                 style: CryptoTextStyle.body2,
               ),
               trailing: Text(
-                quote?.marketCap.toStringAsFixed(3) ?? '',
-                style: CryptoTextStyle.body2,
+                'USD. ${quote?.marketCap.toStringAsFixed(3) ?? ''}',
+                style: CryptoTextStyle.body3.copyWith(
+                  color: Colors.blue,
+                ),
               ),
             ),
           ),
@@ -85,14 +88,15 @@ class _CryptoDetailScreenState extends State<CryptoDetailScreen> {
               right: 8,
             ),
             child: ListTile(
+              onTap: () {},
               leading: const Icon(Icons.money),
               title: const Text(
                 'Percentage changes in 24h',
                 style: CryptoTextStyle.body2,
               ),
               trailing: Text(
-                quote?.percentChange24h.toStringAsFixed(3) ?? '',
-                style: CryptoTextStyle.body2.copyWith(
+                'USD. ${quote?.percentChange24h.toStringAsFixed(3) ?? ' '}',
+                style: CryptoTextStyle.body3.copyWith(
                   color: isNegative ? Colors.red : Colors.green,
                 ),
                 maxLines: 1,
